@@ -44,6 +44,12 @@
   object-fit: cover;
 }
 
+.post_portrailt {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
 @include media-breakpoint-down(md) { 
   .content {
     margin-top: 120px;
