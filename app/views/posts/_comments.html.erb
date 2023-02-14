@@ -1,0 +1,32 @@
+<div class="col-md-5 border position-relative rounded mt-3 contaner">
+  <h5>@<%= link_to @user.profile.username , users_show_path(@user.profile), class: 'text-black' %></h5>
+  <p class= "m-0 small"><%= @post.comment %></p>
+  <small class="pull-right"><%=@post.created_at.strftime('%Y/%m/%d') %> </small>
+  <hr class = "mt-0">
+
+  <div class="bg-light overflow-auto" style="height: 220px;">
+    <% @comments.each do |comment| %>
+      <% id = comment.user_id %>
+      <% user = User.find(id) %>
+      <div class= "position-relative">
+        <%= link_to user.profile.username, users_show_path(user.profile), class: "text-black" %>
+        <%= comment.comment_content %>
+        <%= time_ago_in_words(comment.created_at, class: "position-absolute top-50 start-100 translate-middle") %>前
+      </div>
+    <% end %>
+  </div>            
+  <div class="p-2">
+    <%= form_with model:[@post, @comment], local: true, method: :post, class: "row" do |f| %>
+        <%= render 'shared/error_messages', object: f.object, class: "col-12" %>
+        <%= f.text_area :comment_content, class: "col-10 border ", placeholder: "コメントを入力..." %>
+        <%= f.submit '送信', class: "col-2 btn border" %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+    <% end %>
+  </div>
+  
+  
+</div>
+
+
+
+

@@ -1,0 +1,13 @@
+
+<%= search_form_for @search, url: root_path do |f| %>
+  <div class="position-relative">
+    <%# <%= f.text_field :brand_or_frame_cont, class: "form-control", placeholder: 'searching...' %> %>
+    <%= button_tag type: "submit", class: "btn p-0 position-absolute top-50 end-0 translate-middle-y", style: "width:20px;" do %>
+      <i class="bi bi-search"></i>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+

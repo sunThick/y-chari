@@ -1,0 +1,67 @@
+<div class="">
+  <% if current_username %>
+    <div class="">
+      <button class="btn col-3 mt-3" data-bs-toggle="modal" data-bs-target="#portrailtModal">
+        <% if @profile_header.present? %>
+              <% if @profile_header.portrailt.present? %>
+                <%= image_tag @profile_header.portrailt, class: 'rounded-circle img-fluid m-2 header_portrailt' %>
+              <% else %>
+                <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
+              <% end %>
+            <% else %>
+                <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
+            <% end %>
+      </button>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <%= form_with(model: @profile, url: account_path, data: {local: true, controller: "portrailt"}) do |form| %>
+      <%= render 'shared/error_messages', object: form.object %>
+      <div class="form-group">
+        <%= form.label :name, "名前", :class => "form-label" %>
+        <%= form.text_field :name, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :username, "ユーザーネーム", :class => "form-label" %>
+        <%= form.text_field :username, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :description, "comment", :class => "form-label" %>
+        <%= form.text_field :description, :class => "form-control" %>
+      </div>
+      
+  
+      <div class="actions float-right text-center mt-5">
+        <% if current_username %>
+          <%= link_to 'cancel' , users_show_path(current_username), :class => "btn btn-light" %>
+        <% end %>
+        <%= form.submit "submit", :class => "btn btn-primary btn-lg " %>
+      </div>
+
+
+    <div class="modal fade text-center" id="portrailtModal" tabindex="-1" aria-labelledby="portrailtModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="portrailtModal">profile photo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label class= "btn bg-primary text-white">
+              <i class="bi bi-collection"></i>
+              <span>upload photo</span>
+              <%= form.file_field :portrailt, class: "d-none", accept: "image/jpeg,image/gif,image/png", data: { portrailt_target: "select", action: "change->portrailt#selectImage" }  %>
+            </label>
+            <hr>
+            <div class="btn bg-danger text-white" data-action="click->portrailt#deleteImage">remove current photo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      
+
+
+    <% end %>
+  </div>

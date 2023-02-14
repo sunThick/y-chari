@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <div class="col-md-6 row justify-content-center"> 
+      <div class="col-5">
+        <div class="float-end object-fit-cover cover">
+          <% if @profile.portrailt.present? %>
+            <%= image_tag @profile.portrailt, class: 'rounded-circle img-fluid m-2 show_portrailt' %>
+          <% else %>
+              <i class="bi bi-person-circle pe-auto m-2"  data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 5rem; color: grey;"></i>
+          <% end%>
+        </div>
+      </div>
+      <div class="col-7 text-left">
+        <h4><%= @profile.name %></h4>
+        <h6>@<%= @profile.username %></h6>
+        <small class=""><%= @profile.description %></small>  
+      </div>
+      <% if current_user.profile === @profile %>
+      <%= link_to 'Edit Profile', edit_account_path, class: 'btn border m-3 col-6' %>
+      <% end%>
+    </div>
+  </div>

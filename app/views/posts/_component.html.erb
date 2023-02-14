@@ -1,0 +1,20 @@
+<div class="component col-12 col-md-6 mt-5">
+  <table class="table table-striped">
+    <tbody class="">
+      <% names.each.with_index(1) do |name,i| %>
+        <% if post_components[components[i-1][0]].present? %>
+          <tr class="">
+            <td class="col-3"><%= name %></td>
+            <td class="col-7 flex-nowrap overflow-auto">
+              <span class=""><%= post_components[components[i-1][0]].upcase %></span>
+              <% if post_components[components[i-1][1]].present? %>
+                <i class="bi bi-dash-lg"></i>
+                <span class="fw-light"><%= post_components[components[i-1][1]] %></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

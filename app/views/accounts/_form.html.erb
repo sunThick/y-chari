@@ -1,0 +1,64 @@
+<div class="card-body">
+    <%= form_with(model: @profile, url: account_path, method: :put, local: true) do |form| %>
+      <%= render 'shared/error_messages', object: form.object %>
+
+
+      <button type="button" class="btn position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#portrailtModal">
+        <i class="bi bi-three-dots-vertical"></i>
+      </button>
+
+        <div class="modal fade text-center" id="portrailtModal" tabindex="-1" aria-labelledby="portrailtModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="portrailtModal">profile photo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= link_to 'upload photo', '#', class: "btn" %>
+          <hr>
+          <%= link_to 'remove current photo', '#', class: "btn" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+
+      <label>
+        <%= form.file_field :portrailt, onchange: "avatarImage(this);", accept: "image/jpeg,image/gif,image/png", class: "mb-3 none" %>
+      </label>
+      
+
+  
+
+
+      <div class="form-group">
+        <%= form.label :name, "名前", class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :username, "ユーザーネーム", class: "form-label" %>
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <%= form.text_field :username, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :description, "comment", class: "form-label" %>
+        <%= form.text_field :description, class: "form-control" %>
+      </div>
+
+      <div class="actions float-right text-center mt-5">
+        <% if current_user.profile.present? %>
+          <%= link_to 'cancel' , users_show_path(current_username), class: "btn btn-light" %>
+        <% end %>
+        <%= form.submit "submit", class: "btn btn-primary btn-lg " %>
+      </div>
+    <% end %>
+  </div>
+
+

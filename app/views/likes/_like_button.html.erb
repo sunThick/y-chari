@@ -1,0 +1,19 @@
+<turbo-frame id="like-button">
+  <div class="text-black like_button">
+    <% if @post.liked_by?(current_user) %>
+        <%= link_to  post_likes_path(@post), data: { turbo_method: :delete } do %>
+          <i class="bi bi-heart-fill text-danger"></i>
+          <span class="text-black">
+            <%= @post.likes.count%>
+          </span>
+        <% end %>
+    <% else %>
+      <%= link_to post_likes_path(@post), data: { turbo_method: :post } do %>
+          <i class="bi bi-heart text-black"></i>
+          <span class="text-black">
+            <%= @post.likes.count %>
+          </span>
+      <% end %>
+    <% end %>
+  </div>
+</turbo-frame>

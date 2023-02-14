@@ -1,0 +1,16 @@
+
+  
+<% if params[:q] %>
+  <h3 class="col-12">Search Results "<%= params[:q][:brand_or_frame_cont] %>"</h3>
+  <div class="row row-cols-2 row-cols-md-3">
+    <% @search_posts.each do |post| %> 
+      <%= render "index_content", post: post %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="row row-cols-2 row-cols-md-3">
+    <% @posts.each do |post| %> 
+      <%= render "index_content", post: post %>
+    <% end %>
+  </div>
+<% end %>

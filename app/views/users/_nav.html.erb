@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs justify-content-center">
+  <li class="nav-item mx-2"> 
+    <%= link_to users_show_path(@user.profile.username), class:"nav-link text-black #{active_nav("/#{username}")}" do %>
+      <i class="bi bi-grid"></i>
+      <span class="px-1">Charis</span>
+    <% end %>
+  </li>
+  <li class="nav-item mx-2">
+    
+    <%= link_to "#{users_show_path(@user.profile.username)}/likes", class:"row nav-link text-black #{active_nav("/#{username}/likes")}" do %>
+      <i class="bi bi-clipboard-heart p-0"></i>
+      <span class="px-1">Likes</span>
+    <% end %>
+  </li>
+</ul>

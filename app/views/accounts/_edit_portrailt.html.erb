@@ -1,0 +1,48 @@
+
+
+
+<div type="button" class="btn" data-bs-toggle="modal" data-bs-target="#portrailtModal">
+    <div class="" data-controller="images" data-portrailt-target= "image_box">
+      <% if @profile.present? %>
+        <% if @profile.portrailt.present? %>
+          <%= image_tag @profile.portrailt, class: 'object-fit-cover rounded-circle img-fluid m-2 header_portrailt' %>
+        <% else %>
+          <i class="bi bi-person-circle pe-auto m-2" style="font-size: 40px; color: grey;"></i>
+        <% end %>
+      <% else %>
+          <i class="bi bi-person-circle pe-auto m-2" style="font-size: 40px; color: grey;"></i>
+      <% end %>
+    </div>
+</div>
+
+<div class="modal fade text-center" id="portrailtModal" tabindex="-1" aria-labelledby="portrailtModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="portrailtModal">profile photo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label class= "btn">
+          <i class="bi bi-collection"></i>
+          <span>upload photo</span>
+          <%= form.file_field :portrailt, class: "d-none", accept: "image/jpeg,image/gif,image/png", data: { portrailt_target: "select", action: "change->portrailt#selectImage" }  %>
+        </label> 
+        <hr>
+        <%= link_to 'remove current photo', accounts_delete_image_path, data: { turbo_method: :post, "turbolinks" => false}, class: "btn" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            
+<div data-portrailt-target="preview" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#portrailtModal">
+  <% if @profile.portrailt.attached? %>
+    <div class="" data-controller="images" data-portrailt-target= "image_box">
+      
+    </div>
+  <% end %>
+</div>
+          
+          

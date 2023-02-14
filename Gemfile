@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem 'devise'
 
+gem 'ransack'
+
 gem 'dotenv-rails'
 
 gem 'mysql2', '~> 0.5.5'

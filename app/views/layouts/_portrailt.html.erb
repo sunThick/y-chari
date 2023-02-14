@@ -1,0 +1,9 @@
+<% if profile.present? %>
+  <% if profile.portrailt.present? %>
+    <%= image_tag profile.portrailt.variant(resize_to_fill: [50, 50]), class: 'rounded-circle img-fluid m-2' %>
+  <% else %>
+    <i class="bi bi-person-circle pe-auto m-2 img-fluid"  data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 35px; color: grey;"></i>
+  <% end %>
+<% else %>
+    <i class="bi bi-person-circle pe-auto m-2 img-fluid"  data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size: 35px; color: grey;"></i>
+<% end %>

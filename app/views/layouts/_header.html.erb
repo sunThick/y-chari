@@ -1,0 +1,105 @@
+<div class="fixed-top p-0 px-2 p-md-3 bg-light container-fluid shadow-sm">
+  <div class="container text-center ">
+    <div class="row align-items-center">
+
+      <div class="col-6 col-md-4 p-0">
+        <%= link_to '/' do %>
+          <%= image_tag 'homeLogo.png', class:"img-fluid" %>
+        <% end %>
+      </div>
+
+      <div class="col-2 d-md-none"></div>
+
+      <div class="d-none d-md-block col-md-6">
+        <%= render 'layouts/serch' %>
+      </div>
+
+      
+        <%= link_to profile_photo, class:"col-2 col-md-1 p-0 text-end" do %>
+
+            <% if @profile_header.present? %>
+              <% if @profile_header.portrailt.present? %>
+                <%= image_tag @profile_header.portrailt, class: 'rounded-circle img-fluid m-2 header_portrailt' %>
+              <% else %>
+                <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
+              <% end %>
+            <% else %>
+                <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
+            <% end %>
+
+        <% end %>
+      
+
+      <div class="col-2 col-md-1 p-0">
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+          <i class="bi bi-list" style="font-size: 2rem;"></i>
+        </button>
+        <div class="offcanvas offcanvas-end bg-light" data-bs-scroll="true" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="staticBackdropLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div flex-column class="row justify-content-center">
+              <% if user_signed_in?  %>
+                <div class="col-10 d-md-none mb-4">
+                  <%= render 'layouts/serch' %>
+                </div>
+                <p>
+                  <%= link_to 'HOME', root_path, class:"dropdown-item text-black" %>
+                </p>
+                <% if current_user.profile.nil? %>
+                    <p>
+                      <%= link_to 'profile', new_account_path, class:"dropdown-item text-black" %>
+                    </p>
+                <% elsif  current_user.profile.username.nil? %>
+                    <p>
+                      <%= link_to 'profile', new_account_path, class:"dropdown-item text-black" %>
+                    </p>
+                <% elsif current_user.profile.username.present? %>
+                    <p>
+                      <%= link_to 'new chari', new_post_path, class:"dropdown-item text-black" %>
+                    </p>
+                    <p>
+                      <%= link_to 'profile', "/#{current_username}", class:"dropdown-item text-black" %>
+                    </p>
+                <% end %>
+
+                <hr>
+
+                <p>
+                  <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete, class:"dropdown-item text-black}" %>
+                </p>
+              <% else %>
+                <p>
+                  <%= link_to 'LOGIN', '/users/sign_in', class:"dropdown-item text-black }" %>
+                </p>
+                <p>
+                  <%= link_to 'SIGNUP', new_user_registration_path, class:"dropdown-item text-black }" %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     </div>
+
+      
+   
+
+
+    <div id="upperHeader" class ="scroll-area row flex-nowrap mt-md-3 overflow-auto">
+          <%= link_to 'all bikes', root_path, class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/')}" %>
+          <%= link_to 'single speed', '/categories/singlespeed', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/singlespeed')}" %>
+          <%= link_to 'MTB', '/categories/MTB', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/MTB')}" %>
+          <%= link_to 'touring', '/categories/touring', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/touring')}" %>
+          <%= link_to 'cyclocross', '/categories/cyclocross', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/cyclocross')}" %>
+          <%= link_to 'road', '/categories/road', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/road')}" %>
+          <%= link_to 'MINI', '/categories/MINI', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/MINI')}" %>
+          <%= link_to 'others', '/categories/others', class:"text-nowrap link-secondary  rounded m-1 col #{active_class('/categories/others')}" %>
+    </div> 
+    
+  </div>
+  
+</div>

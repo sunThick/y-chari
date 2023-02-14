@@ -1,0 +1,31 @@
+<div id="carouselExampleIndicators" class="carousel slide border bg-secondary bg-md-light" data-bs-ride="false"  >
+      <!-- インジケータの設定 -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
+        <% @post.images.drop(1).each do |image| %>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= @post.images.index(image) %>" ></button>
+        <% end %>
+      </div>
+      <!-- スライドさせる画像の設定 -->
+      <div class="carousel-inner text-center center-block">
+        <div class="carousel-item active ">
+          <% if @post.images.present? %>
+            <%= image_tag @post.images[0], class: "img-fluid mx-auto d-block ", style: "max-height:100%; width: auto;" %>
+          <% end %>
+        </div><!-- /.carousel-item -->
+        <% @post.images.drop(1).each do |image| %>
+          <div class="carousel-item ">
+            <%= image_tag image,  class: "img-fluid mx-auto d-block ", style: "max-height:100%; width: auto;" %>
+          </div><!-- /.carousel-item -->
+        <% end %>
+      </div><!-- /.carousel-inner -->
+      <!-- スライドコントロールの設定 -->
+      <% if @post.images[1].present? %>
+        <button type="button" class="carousel-control-prev" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <i class="bi bi-arrow-left-circle-fill text-black" style="font-size: 2rem;"></i>
+        </button>
+        <button type="button" class="carousel-control-next" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <i class="bi bi-arrow-right-circle-fill text-black" style="font-size: 2rem;"></i>
+        </button>
+      <% end %>
+    </div><!-- /.carousel -->

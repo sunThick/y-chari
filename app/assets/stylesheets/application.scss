@@ -10,7 +10,70 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+//  *= require_tree .
+//  *= require_self
  */
  @import "bootstrap";
+ @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+
+.content {
+  margin-top: 170px;
+}
+.card-img-wrapper {
+  height: 200px;
+}
+
+.carousel-item {
+  height: 400px;
+}
+
+.like_button {
+  width: 50px;
+}
+
+.header_portrailt {
+  width: 45px;
+  height: 45px;
+  object-fit: cover
+}
+
+.show_portrailt {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+@include media-breakpoint-down(md) { 
+  .content {
+    margin-top: 120px;
+  }
+  .card-img-wrapper {
+    height: 100px;
+  }
+  .like_button {
+    width: 30px;
+  }
+  .carousel-item {
+    height: 200px;
+  }
+  .header_portrailt {
+    width: 40px;
+    height: 40px;
+    object-fit: cover
+  }
+ }
+
+
+
+a {
+  text-decoration: none ;
+}
+
+.turbo-progress-bar {
+  height: 5px;
+}
+
+
+
+

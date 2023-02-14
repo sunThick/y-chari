@@ -1,0 +1,151 @@
+<%= form.fields_for :part do |part_form| %>
+  <div class="accordion accordion-flush mt-3" id="accordionFlushExample">
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading1">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapseOne">
+          FRAME, HEADSET
+        </button>
+      </h2>
+      <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" >
+        <div class="accordion-body">
+          <% @components_1.zip(@names_1) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading2">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapseTwo">
+          HADLEBAR, STEM, GRIPS
+        </button>
+      </h2>
+      <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" >
+        <div class="accordion-body">
+          <% @components_2.zip(@names_2) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading3">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapseThree">
+          SADDLE, SEATPOST
+        </button>
+      </h2>
+      <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" >
+        <div class="accordion-body">
+          <% @components_3.zip(@names_3) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading4">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapseThree">
+          TIRE, WHEEL, HUBS
+        </button>
+      </h2>
+      <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" >
+        <div class="accordion-body">
+          <% @components_4.zip(@names_4) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading5">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="false" aria-controls="flush-collapseThree">
+          CRANK, PEDALS, CHAIN
+        </button>
+      </h2>
+      <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" >
+        <div class="accordion-body">
+          <% @components_5.zip(@names_5) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading6">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="false" aria-controls="flush-collapseThree">
+          BRAKES, SHIFTERS
+        </button>
+      </h2>
+      <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" >
+        <div class="accordion-body">
+          <% @components_6.zip(@names_6) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-heading7">
+        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="false" aria-controls="flush-collapseThree">
+          RACK, ACCESSORIES
+        </button>
+      </h2>
+      <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" >
+        <div class="accordion-body">
+          <% @components_7.zip(@names_7) do |component,name| %>
+            <div class="form-group">
+              <%= part_form.label component[0], "#{name}", :class => "form-label" %>
+              <div class="row d-flex mb-2">
+                <%= part_form.text_field component[0], :class => "form-control col", placeholder: 'brand' %>
+                <%= part_form.text_field component[1], :class => "form-control col", placeholder: 'name' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

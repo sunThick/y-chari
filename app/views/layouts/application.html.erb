@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YChari</title>
+    <title>YourChari</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render 'layouts/header'%>
+      <div class="content">
+        <%= render 'layouts/flash', class: "flash"%> 
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

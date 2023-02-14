@@ -1,0 +1,20 @@
+<div id="flash" data-controller="flash">
+  <% if flash[:notice] %>
+    <div class="flash shadow text-center bg-info">
+      <p class="notice m-0"><%= notice %><button class="btn" data-action="flash#hideTargets"><i class="bi bi-trash"></i></button></p>
+      
+    </div>
+  <% end%>
+
+  <% if flash[:alert] %>
+    <div class="flash shadow text-center bg-danger">
+      <p class="alert m-0"><%= alert %><button class="btn" data-action="flash#hideTargets"><i class="bi bi-trash"></i></button></p>
+      
+    </div>
+  <% end%>
+</div>
+
+
+
+
+
