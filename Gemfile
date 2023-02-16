@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem 'devise'
 
+gem "whenever", require: false
+
 gem 'ransack'
 
 # gem 'aws-sdk-rails'
