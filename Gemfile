@@ -7,7 +7,7 @@ gem 'devise'
 
 gem 'ransack'
 
-gem 'aws-sdk-rails'
+# gem 'aws-sdk-rails'
 
 gem 'dotenv-rails'
 
@@ -88,4 +88,5 @@ end
 
 group :production do
   gem 'unicorn'
+  gem "aws-sdk-s3"
 end
