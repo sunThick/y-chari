@@ -1,6 +1,6 @@
 <h2>Forgot your password?</h2>
 
-<%= form_with model: @user, url: registration_path(resource_name), local: true do |f| %>
+<%= form_with model: @user, data: { turbo: false }, url: registration_path(resource_name), local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">

@@ -9,7 +9,7 @@ gem "whenever", require: false
 
 gem 'ransack'
 
-# gem 'aws-sdk-rails'
+gem 'aws-sdk-rails'
 
 gem 'dotenv-rails'
 
