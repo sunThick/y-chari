@@ -2,18 +2,8 @@ Rails.application.routes.draw do
 
   #device
 
-  devise_for :users, controllers: {
-    # ↓ローカルに追加されたコントローラーを参照する(コントローラー名: "コントローラーの参照先")
-    registrations: "users/registrations",
-    sessions: "users/sessions",
-    passwords: "users/passwords",
-    confirmations: "users/confirmations"
-  }
-  # サインアウトのエラーを解消
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-
+  devise_for :users
+  
 
   
   root "posts#index" 

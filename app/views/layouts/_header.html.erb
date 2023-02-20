@@ -71,7 +71,7 @@
                 </p>
 
                 <p>
-                  <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete, class:"dropdown-item text-black" %>
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "dropdown-item text-black" %>
                 </p>
               <% else %>
                 <p>

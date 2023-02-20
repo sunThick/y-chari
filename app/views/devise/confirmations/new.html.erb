@@ -1,6 +1,9 @@
+<div class="mt-3 row justify-content-center">
+<div class="col-md-6 border">
+
 <h2>Resend confirmation instructions</h2>
 
-<%= form_with model: @user, data: { turbo: false }, url: session_path(resource_name), local: true do |f| %>
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -9,8 +12,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+    <%= f.submit "Resend confirmation instructions", :class => "btn btn-primary btn-lg mt-3 btn-sm" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</div>
