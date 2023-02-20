@@ -5,11 +5,14 @@ ruby "3.1.2"
 
 gem 'devise'
 
+
+
 gem "whenever", require: false
 
 gem 'ransack'
 
 gem 'aws-sdk-rails'
+gem "aws-sdk-s3"
 
 gem 'dotenv-rails'
 
@@ -90,5 +93,5 @@ end
 
 group :production do
   gem 'unicorn'
-  gem "aws-sdk-s3"
+  
 end
