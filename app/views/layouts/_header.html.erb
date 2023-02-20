@@ -66,9 +66,12 @@
                 <% end %>
 
                 <hr>
+                <p>
+                  <%= link_to 'アカウント設定', "/users/edit", class:"dropdown-item text-black" %>
+                </p>
 
                 <p>
-                  <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete, class:"dropdown-item text-black}" %>
+                  <%= link_to 'ログアウト', destroy_user_session_path, :method => :delete, class:"dropdown-item text-black" %>
                 </p>
               <% else %>
                 <p>
