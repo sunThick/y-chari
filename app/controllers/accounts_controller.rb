@@ -49,9 +49,8 @@ class AccountsController < ApplicationController
 
   def delete_image
     @profile = current_user.profile
-    if @profile.portrailt.purge
-      flash[:notice] = 'delete photo'
-    end
+    @profile.portrailt.purge
+    flash[:notice] = '写真を削除しました'
   end
 
   private
