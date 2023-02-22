@@ -42,7 +42,7 @@ class AccountsController < ApplicationController
    # 画像アップロード用のアクション,選択状態の画像をパラメータにマージ（profileモデルとの紐付け）
   def upload_image
     @profile = current_user.profile
-    create_blob(params[:image])
+    # create_blob(params[:image])
     @profile.portrailt.attach(params[:image])
     flash[:notice] = '写真を変更しました'
   end
@@ -60,13 +60,13 @@ class AccountsController < ApplicationController
     end
 
     # blobデータの作成
-    def create_blob(file)
-      ActiveStorage::Blob.create_and_upload!(
-        io: file.open,
-        filename: file.original_filename,
-        content_type: file.content_type
-      )
-    end
+    # def create_blob(file)
+    #   ActiveStorage::Blob.create_and_upload!(
+    #     io: file.open,
+    #     filename: file.original_filename,
+    #     content_type: file.content_type
+    #   )
+    # end
 
     def account_exist?
         if !current_user.profile.nil?

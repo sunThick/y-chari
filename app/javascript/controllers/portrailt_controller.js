@@ -20,7 +20,7 @@ export default class extends Controller {
     // .then((response) => response.json())
     .then((result) => {
       console.log('Success:', result);
-      location.reload();
+      location.reload(); 
     })
     // .then((response) => response.json())
     .then((result) => {

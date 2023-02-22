@@ -4,7 +4,7 @@
       <button class="btn col-3 mt-3" data-bs-toggle="modal" data-bs-target="#portrailtModal">
         <% if @profile_header.present? %>
               <% if @profile_header.portrailt.present? %>
-                <%= image_tag @profile_header.portrailt, class: 'rounded-circle img-fluid m-2 header_portrailt' %>
+                <%= image_tag @profile_header.portrailt.variant(resize_to_limit: [150, 150]).processed, class: 'rounded-circle img-fluid m-2 header_portrailt' %>
               <% else %>
                 <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
               <% end %>
