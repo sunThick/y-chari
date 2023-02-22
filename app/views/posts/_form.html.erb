@@ -29,7 +29,7 @@
       <div data-images-target="preview" class='row'>
         <% if @post.images.attached? %>
           <% @post.images.each do |image| %>
-            <div class="col-3 text-center border" data-controller="images" data-images-target= "image_box">
+            <div class="col-3 text-center border image-box" data-controller="images" data-images-target= "image_box">
               <%= image_tag image, class: "mt-2 img-fluid mx-auto d-block" %>
               <a class="link btn" data-action="click->images#deleteImage" >delete</a>
               <%= form.hidden_field :images, name: "post[images][]", style: "display: none", value: "#{image.blob.id}", class: "btn" %>

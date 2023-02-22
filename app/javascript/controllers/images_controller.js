@@ -5,7 +5,7 @@ export default class extends Controller {
   /* ①静的プロパティを定義（data-{controller}-target で指定したターゲット名） */
   static targets = ["select", "preview", "image_box", "error"]
 
-  imageSizeOver(file){ // アップロードする画像ファイルサイズの上限（2MB）を超えたかどうか判定
+  imageSizeOver(file){ // アップロードする画像ファイルサイズの上限（10MB）を超えたかどうか判定
     const fileSize = (file.size)/1000 // ファイルサイズ(KB)
     if(fileSize > 10000){
       return true // ファイルサイズが10MBを超えた場合はtrueを返す
