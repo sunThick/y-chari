@@ -25,7 +25,7 @@
     <div class="align-items-center d-flex justify-content-center">
       <% if @profile_post.present? %>
         <% if @profile_post.portrailt.present? %>
-          <%= image_tag @profile_post.portrailt, class: 'rounded-circle img-fluid m-2 post_portrailt' %>
+          <%= image_tag @profile_post.portrailt.variant(resize_to_limit: [150, 150]).processed, class: 'rounded-circle img-fluid m-2 post_portrailt' %>
         <% else %>
           <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
         <% end %>

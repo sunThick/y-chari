@@ -6,7 +6,7 @@
     </div>
     <div class="text-center card-img-wrapper align-middle mt-2" >
       <% if post.images.present? %>
-        <%= image_tag post.images[0], class: "card-img-top img-fluid mx-auto rounded-0 align-middle", style: "max-height:100%; width: auto;" %>
+        <%= image_tag post.images[0].variant(resize_to_limit: [500, 500]).processed, class: "card-img-top img-fluid mx-auto rounded-0 align-middle", style: "max-height:100%; width: auto;" %>
       <% end %>
     </div>
     <div class="card-body p-0">

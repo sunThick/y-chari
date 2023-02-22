@@ -16,7 +16,7 @@ gem "aws-sdk-s3"
 
 gem 'dotenv-rails'
 
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 gem 'mysql2', '~> 0.5.5'
 
