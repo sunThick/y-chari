@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:update, :destroy, :edit] 
   before_action :set_post, only: [:show, :edit, :update, :destroy, :need_images]
-  before_action :halfway_account, except: [:index]
+  before_action :halfway_account, except: [:index, :show]
   before_action :set_components, only: [:new, :edit ,:create, :update]
 
   def index

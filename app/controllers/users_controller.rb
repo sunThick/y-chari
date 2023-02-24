@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :completed_account?
   before_action :authenticate_user!
+  before_action :completed_account?
+  
   
   def show
     @profile = Profile.find_by(username: params[:username])

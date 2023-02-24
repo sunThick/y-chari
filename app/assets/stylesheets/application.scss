@@ -50,6 +50,12 @@
   object-fit: cover;
 }
 
+// .back-btn {
+//   left:  50px;
+//   top: 10px;
+//   font-size: 30px;
+// }
+
 @include media-breakpoint-down(md) { 
   .content {
     margin-top: 120px;
@@ -68,6 +74,11 @@
     height: 40px;
     object-fit: cover
   }
+
+  // .back-btn {
+  //   left:  0px;
+  //   top: 10px;
+  // }
  }
 
 

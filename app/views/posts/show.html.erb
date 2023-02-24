@@ -1,96 +1,100 @@
-
-
-<div class="justify-content-center row text-center">
-  <h2 class="position-relative col-12 col-md-6 mb-0" >
-    <%= @post.brand %>
-    <% if @post.user_id == current_user.id %>
-      <button type="button" class="btn position-absolute top-0 end-0" data-bs-toggle="modal" data-bs-target="#postModal">
-        <i class="bi bi-three-dots-vertical"></i>
-      </button>
-    <% end %>
-  <h2>
-  <h4>'<%= @post.frame %>'</h4>
-  <h4 class="fw-light small">-----<%= @post.category %>-----</h4>
-</div> 
-
-
-<div class="images">
-  <%= render 'images', { images: @images }%>
-</div>
-
-
-<div class="row justify-content-center">
-  <div class="col-10 col-md-6 text-center container">
-    
-    <div class="align-items-center d-flex justify-content-center">
-      <% if @profile_post.present? %>
-        <% if @profile_post.portrailt.present? %>
-          <%= image_tag @profile_post.portrailt.variant(resize_to_limit: [150, 150]).processed, class: 'rounded-circle img-fluid m-2 post_portrailt' %>
-        <% else %>
-          <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
+<div class="position-relative">
+ 
+  <div class="justify-content-center row text-center">
+    <h2 class="position-relative col-12 col-md-6 mb-0" >
+      <%= @post.brand %>
+      <%= link_to :back, class:"position-absolute start-0 px-2" do %>
+        <i class="bi bi-skip-start  back-btn text-black"></i>
+      <%end%>
+      <% if user_signed_in? %>
+        <% if @post.user_id == current_user.id %>
+          <div type="button" class="btn position-absolute end-0 py-0 px-2" data-bs-toggle="modal" data-bs-target="#postModal">
+            <i class="bi bi-three-dots-vertical"></i>
+          </div>
         <% end %>
-      <% else %>
-          <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
       <% end %>
-      <%= link_to "#{@user.profile.username}", users_show_path(@user.profile.username), class: "text-black h4 fw-light mb-0" %>            
-    </div>
-    
-   
-    <div class="small">
-      <%= @post.comment %>
-    </div>
-    
-    <div class="text-muted text-righ d-flex flex-row-reverse mt-1">
-      <div class="mx-2 ">
-        <%= render 'likes/like_button' %>
-      </div>
-      <%= @post.created_at.strftime('%Y/%m/%d')%>
-    </div>
-    
-    <hr class="my-1">
-    
+    <h2>
+    <h4>'<%= @post.frame %>'</h4>
+    <h4 class="fw-light small">-----<%= @post.category %>-----</h4>
+  </div> 
+
+
+  <div class="images">
+    <%= render 'images', { images: @images }%>
   </div>
-</div>
 
 
-
-
-
-  
-
-
-<div class="d-flex justify-content-center rounded">
-  <%= render 'component' %>
-</div>
-  
-
-
-
-
-
-<% if @post.user_id == current_user.id %>
-  <!-- Modal -->
-  <div class="modal fade text-center" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">chari setting</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <%= link_to 'edit', edit_post_path(@post), class:"btn w-100 btn-outline-secondary" %>
-          <hr>
-          <%= link_to @post, data: { turbo_method: :delete ,turbo_confirm: "削除してよろしいですか?" }, class: "btn btn-outline-danger w-100"  do %>
-            <i class="bi bi-trash"></i>
-            delete
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-6 text-center container">
+      
+      <div class="align-items-center d-flex justify-content-center">
+        <% if @profile_post.present? %>
+          <% if @profile_post.portrailt.present? %>
+            <%= image_tag @profile_post.portrailt.variant(resize_to_limit: [150, 150]).processed, class: 'rounded-circle img-fluid m-2 post_portrailt' %>
+          <% else %>
+            <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
           <% end %>
-        </div>
+        <% else %>
+            <i class="bi bi-person-circle pe-auto m-2" style="font-size: 35px; color: grey;"></i>
+        <% end %>
+        <%= link_to "#{@user.profile.username}", users_show_path(@user.profile.username), class: "text-black h4 fw-light mb-0" %>            
       </div>
+      
+    
+      <div class="small">
+        <%= @post.comment %>
+      </div>
+      
+      <div class="text-muted text-righ d-flex flex-row-reverse mt-1">
+        <% if user_signed_in? %>
+          <div class="mx-2 ">
+            <%= render 'likes/like_button' %>
+          </div>
+        <% else %>
+          <%= link_to post_likes_path(@post), data: { turbo_method: :post } do %>
+            <i class="bi bi-heart text-black"></i>
+            <span class="text-black">
+              <%= @post.likes.count %>
+            </span>
+        <% end %>
+        <% end %>
+        
+        <%= @post.created_at.strftime('%Y/%m/%d')%>
+      </div>
+      
+      <hr class="my-1">
+      
     </div>
   </div>
-<% end %> 
 
-
+  <div class="d-flex justify-content-center rounded">
+    <%= render 'component' %>
+  </div>
+    
+  <% if user_signed_in? %>
+    <% if @post.user_id == current_user.id %>
+      <!-- Modal -->
+      <div class="modal fade text-center" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">chari setting</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= link_to 'edit', edit_post_path(@post), class:"btn w-100 btn-outline-secondary" %>
+              <hr>
+              <%= link_to @post, data: { turbo_method: :delete ,turbo_confirm: "削除してよろしいですか?" }, class: "btn btn-outline-danger w-100"  do %>
+                <i class="bi bi-trash"></i>
+                delete
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %> 
+  <% end %>
+</div>
 
 
   
