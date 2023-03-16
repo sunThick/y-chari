@@ -26,6 +26,9 @@ Ruby 3.1.2
 ### データベース
 MySQL
 
+### ER図 
+https://github.com/sunThick/y-chari/issues/1#:~:text=4%20minutes%20ago-,erd.pdf,-Write
+
 ### サーバー
 nginx, Unicorn
 
