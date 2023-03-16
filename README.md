@@ -26,6 +26,9 @@ Ruby 3.1.2
 ### database
 MySQL
 
+### サーバー
+nginx, Unicorn
+
 ## アプリケーション機能
 
 ### 機能一覧
