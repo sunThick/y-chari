@@ -10,6 +10,12 @@ Your Chair
 #### こだわったポイント
 レスポンシブに対応できるようにしました。
 
+####  デザイン面でこだわったポイント
+一覧画面で検索バーやカテゴリーを表示することによってユーザーが見たいものを瞬時に表示する事ができる。
+
+### 自己評価
+テーブルの設計など改善点が多く見られる。
+
 ### 公開したアプリのURL
 https://yourchari.com/
 
@@ -22,6 +28,9 @@ https://github.com/sunThick/y-chari
 
 ### 開発言語
 Ruby 3.1.2
+
+### フレームワーク
+Ruby on Rails 7.0.4.2
 
 ### データベース
 MySQL
@@ -44,10 +53,12 @@ nginx, Unicorn
 - プロフィール画面 ：ユーザーの投稿一覧といいね一覧を見る事ができる。
 
 ### 使用しているAPI,SDK,ライブラリなど
-- Ruby on Rails 7.0.4.2
 - stimulus.js
 - active storage
 
 ### インフラ
 - amazon EC2, S3, SES, Route53
+
+
+
 
