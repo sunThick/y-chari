@@ -23,7 +23,7 @@ https://github.com/sunThick/y-chari
 ### 開発言語
 Ruby 3.1.2
 
-### database
+### データベース
 MySQL
 
 ### サーバー
