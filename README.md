@@ -1,21 +1,47 @@
-# README
 
+### 作者
+笹井　陽太
+### アプリ名
+Your Chair
+
+#### コンセプト
+自分でカスタムした自転車を投稿する事ができる。
+
+#### こだわったポイント
+レスポンシブに対応できるようにしました。
+
+### 公開したアプリのURL
 https://yourchari.com/
 
-* Ruby version
+### 該当プロジェクトのリポジトリURL
+https://github.com/sunThick/y-chari
 
-* System dependencies
+## 開発環境
+### 開発環境
+ローカル環境
 
-* Configuration
+### 開発言語
+Ruby 3.1.2
 
-* Database creation
+### database
+MySQL
 
-* Database initialization
+## アプリケーション機能
 
-* How to run the test suite
+### 機能一覧
+- ユーザー認証機能: アカウント登録の際、メール認証を採用。
+- 自転車投稿機能：自分でカスタムした自転車の写真を複数枚、構成パーツ、詳細を記入して投稿する。
+- いいね機能：自転車にいいねをし、プロフィール画面からいいねした一覧を見る事ができる。
 
-* Services (job queues, cache servers, search engines, etc.)
+### 画面一覧
+- 一覧画面 ：全ユーザーの投稿を一覧で見ることができる。またカテゴリーを上部に表示し、瞬時にカテゴリー別に表示できるようにしました。
+- プロフィール画面 ：ユーザーの投稿一覧といいね一覧を見る事ができる。
 
-* Deployment instructions
+### 使用しているAPI,SDK,ライブラリなど
+- Ruby on Rails 7.0.4.2
+- stimulus.js
+- active storage
 
-* ...
+### インフラ
+- amazon EC2, S3, SES, Route53
+
