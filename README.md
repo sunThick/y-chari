@@ -1,24 +1,61 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 作者
+笹井　陽太
+### アプリ名
+Your Chair
 
-Things you may want to cover:
+#### コンセプト
+自分でカスタムした自転車を投稿する事ができる。
 
-* Ruby version
+#### こだわったポイント
+レスポンシブに対応できるようにしました。また画像を投稿する際にstimulus.jsを利用して非同期で投稿できるようにしました。
 
-* System dependencies
+####  デザイン面でこだわったポイント
+一覧画面で検索バーやカテゴリーを表示することによってユーザーが見たいものを瞬時に表示する事ができる。
 
-* Configuration
+#### 自己評価
+UIとUXをもう少しこだわりたい。
 
-* Database creation
+### 公開したアプリのURL
+https://yourchari.com/
 
-* Database initialization
+### 該当プロジェクトのリポジトリURL
+https://github.com/sunThick/y-chari
 
-* How to run the test suite
+## 開発環境
+### 開発環境
+ローカル環境
 
-* Services (job queues, cache servers, search engines, etc.)
+### 開発言語
+Ruby 3.1.2
 
-* Deployment instructions
+### フレームワーク
+Ruby on Rails 7.0.4.2
 
-* ...
+### データベース
+MySQL
+
+### ER図 
+https://github.com/sunThick/y-chari/issues/1#:~:text=4%20minutes%20ago-,erd.pdf,-Write
+
+### サーバー
+nginx, Unicorn
+
+## アプリケーション機能
+
+### 機能一覧
+- ユーザー認証機能: アカウント登録の際、メール認証を採用。
+- ログイン機能
+- 自転車投稿機能：自分でカスタムした自転車の写真を複数枚、構成パーツ、詳細を記入して投稿する。
+- いいね機能：自転車にいいねをし、プロフィール画面からいいねした一覧を見る事ができる。
+
+### 画面一覧
+- 一覧画面 ：全ユーザーの投稿を一覧で見ることができる。またカテゴリーを上部に表示し、瞬時にカテゴリー別に表示できるようにしました。
+- プロフィール画面 ：ユーザーの投稿一覧といいね一覧を見る事ができる。
+
+### インフラ
+- amazon EC2, S3, SES, Route53
+
+
+
+
